@@ -31,7 +31,7 @@ function App() {
         <Header></Header>
       </header>
       <main className="App-main">
-        <AddTodo></AddTodo>
+        <AddTodo tasks={tasks} setTask={setTask}></AddTodo>
         <TodoList tasks={tasks} setTask={setTask}></TodoList>
       </main>
     </div>
