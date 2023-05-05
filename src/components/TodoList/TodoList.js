@@ -2,8 +2,21 @@ import React from "react";
 
 function TodoList({tasks, setTask}) {
 
+  console.log(tasks);
+
   function deleteTask(id) {
     const newTasks = [...tasks].filter((task) => task.id !== id);
+    setTask(newTasks);
+  }
+
+  function statusTask(id) {
+    console.log('Закрыть')
+    const newTasks = [...tasks].filter((task) => {
+      if (task.id === id) {
+        task.status = !task.status;
+      }
+      return task;
+    });
     setTask(newTasks);
   }
 
@@ -22,7 +35,7 @@ function TodoList({tasks, setTask}) {
                   <div className="col-md-2 d-flex justify-content-around align-items-center">
                     <i role="button" title="Удалить задачу" className="bi bi-trash3 p-2" onClick={() => deleteTask(task.id)}></i>
                     <i className="bi bi-pencil p-2"></i>
-                    <i className="bi bi-check p-2"></i>
+                    <i role="button" title="Закрыть/Открыть задачу" className="bi bi-check p-2" onClick={() => statusTask(task.id)}></i>
                   </div>
                 </li>
               )
