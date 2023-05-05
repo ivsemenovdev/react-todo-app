@@ -7,7 +7,7 @@ import AddTodo from "./components/AddTodo/AddTodo";
 import TodoList from "./components/TodoList/TodoList";
 
 function App() {
-  const [tasks] = useState([
+  const [tasks, setTask] = useState([
     {
       id: 1,
       title: "first todo",
@@ -32,7 +32,7 @@ function App() {
       </header>
       <main className="App-main">
         <AddTodo></AddTodo>
-        <TodoList tasks={tasks}></TodoList>
+        <TodoList tasks={tasks} setTask={setTask}></TodoList>
       </main>
     </div>
   );
