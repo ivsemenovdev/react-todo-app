@@ -7,10 +7,10 @@ import TodoList from "./components/TodoList/TodoList";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="App-header py-3 bg-dark">
         <Header></Header>
       </header>
-      <main>
+      <main className="App-main">
         <AddTodo></AddTodo>
         <TodoList></TodoList>
       </main>
