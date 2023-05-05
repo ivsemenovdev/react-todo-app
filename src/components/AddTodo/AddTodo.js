@@ -10,7 +10,7 @@ function AddTodo() {
               type="text"
               className="form-control w-100"
               placeholder="Введите задачу"
-              autoFocus="true"
+              autoFocus={true}
             ></input>
           </div>
           <div className="col-md-2 col p-2">
