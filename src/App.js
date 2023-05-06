@@ -10,18 +10,23 @@ function App() {
   const [tasks, setTask] = useState([
     {
       id: 1,
-      title: "first todo",
-      status: false,
+      title: "Создать новый репозиторий на github.",
+      status: true,
     },
     {
       id: 2,
-      title: "second todo",
-      status: false,
+      title: "Написать приложение согласно тех. заданию.",
+      status: true,
     },
     {
       id: 3,
-      title: "third todo",
+      title: "Сделать деплой приложения.",
       status: true,
+    },
+    {
+      id: 4,
+      title: "Отправить приложение на тестировани.",
+      status: false,
     },
   ]);
 

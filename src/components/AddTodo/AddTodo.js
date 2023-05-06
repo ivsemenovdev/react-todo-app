@@ -13,7 +13,7 @@ function AddTodo({tasks, setTask}) {
       [...tasks, {
         id: uuidv4(),
         title: value,
-        status: true
+        status: false
       } ]
     );
     setValue("");

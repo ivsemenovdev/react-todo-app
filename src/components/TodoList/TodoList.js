@@ -54,7 +54,7 @@ function TodoList({tasks, setTask}) {
                              onChange={(e) => setValue(e.target.value)}/>
                     </div>
                     :
-                    <div className="col-md-10 col-12 p-2 text-wrap">
+                    <div className={task.status ? "col-md-10 col-12 p-2 text-break text-decoration-line-through text-success" : "col-md-10 col-12 p-2 text-break"}>
                       {task.title}
                     </div>
                 }
@@ -77,8 +77,13 @@ function TodoList({tasks, setTask}) {
                          onClick={() => deleteTask(task.id)}></i>
                       <i role="button" title="Редактировать задачу" className="bi bi-pencil p-2"
                          onClick={() => editTask(task.id, task.title)}></i>
-                      <i role="button" title="Закрыть/Открыть задачу" className="bi bi-check p-2"
-                         onClick={() => statusTask(task.id)}></i>
+                      {
+                        task.status ?
+                          <i role="button" title="Открыть задачу" className="bi bi-check p-2"
+                             onClick={() => statusTask(task.id)}></i> :
+                          <i role="button" title="Закрыть задачу" className="bi bi-x p-2"
+                             onClick={() => statusTask(task.id)}></i>
+                      }
                     </div>
                 }
               </li>
