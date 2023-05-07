@@ -1,27 +1,30 @@
-import React, { useState } from "react";
-import { v4 as uuidv4 } from 'uuid';
+import React, {Fragment, useState} from "react";
+import {v4 as uuidv4} from 'uuid';
 
 function AddTodo({tasks, setTask}) {
 
   const [value, setValue] = useState("");
 
-  // console.log(value);
-
   function addTask(e) {
-    e.preventDefault();
-    setTask(
-      [...tasks, {
-        id: uuidv4(),
-        title: value,
-        status: false
-      } ]
-    );
-    setValue("");
+
+    if (!!value.trim()) {
+      e.preventDefault();
+      setTask(
+        [...tasks, {
+          id: uuidv4(),
+          title: value,
+          status: false
+        }]
+      );
+      setValue("");
+    } else {
+      setValue("");
+    }
   }
 
   return (
-    <div className="container py-5 px-4">
-      <form>
+    <Fragment>
+      <form className="container py-5 px-4 needs-validation">
         <div className="row">
           <div className="col-md-10 col-12 p-2">
             <input
@@ -31,6 +34,7 @@ function AddTodo({tasks, setTask}) {
               autoFocus={true}
               value={value}
               onChange={(e) => setValue(e.target.value)}
+              required
             ></input>
           </div>
           <div className="col-md-2 col p-2">
@@ -45,7 +49,7 @@ function AddTodo({tasks, setTask}) {
           </div>
         </div>
       </form>
-    </div>
+    </Fragment>
   );
 }
 
